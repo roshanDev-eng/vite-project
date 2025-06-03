@@ -234,26 +234,26 @@ const Create_Fileds = {
       [Fileds.CATEGORY.label]: "",
       [Fileds.Country.label]: "",
       [Fileds.TYPE_address.label]: "",
-      [Fileds.Province.label]: "",
       [Fileds.Number.label]: "",
+      [Fileds.Province.label]: "",
       [Fileds.City.label]: "",
       [Fileds.Number_End.label]: "",
       [Fileds.City_Not_Listed.label]: "",
-      [Fileds.Street.label]: "",
       [Fileds.Postal_Code.label]: "",
+      [Fileds.Street.label]: "",
       [Fileds.Unit.label]: "",
     },
     fieldHeadings: [
       Fileds.CATEGORY.label,
       Fileds.Country.label,
       Fileds.TYPE_address.label,
-      Fileds.Province.label,
       Fileds.Number.label,
+      Fileds.Province.label,
       Fileds.City.label,
       Fileds.Number_End.label,
       Fileds.City_Not_Listed.label,
-      Fileds.Street.label,
       Fileds.Postal_Code.label,
+      Fileds.Street.label,
       Fileds.Unit.label,
     ],
     fieldKeys: [
@@ -387,5 +387,109 @@ const Create_Fileds = {
     },
   },
 };
+const Trust_Model = {
+  Trust_steps_2: {
+    part_1: {
+      objects: { [Fileds.STATUS.label]: "" },
+      fieldHeadings: [
+        Fileds.STATUS.key,
+        Fileds.BALANCE.label,
+        Fileds.Invoice.label,
+      ],
+      fieldKeys: [Fileds.STATUS.key, Fileds.BALANCE.key, Fileds.Invoice.key],
+      optionBasedFields: [Fileds.STATUS.key],
+      dateFields: [],
+      options: {
+        [Fileds.STATUS.key]: [
+          Fileds.New.key,
+          Fileds.cancel.key,
+          Fileds.Paid.key,
+        ],
+      },
+    },
+    part_2: {
+      objects: { [Fileds.STATUS.label]: "" },
+      fieldHeadings: [
+        Fileds.DATE.label,
+        Fileds.DATEDUE.label,
+        Fileds.currency.label,
+        Fileds.Payments_types.label,
+        Fileds.Received_as.label,
+      ],
+      fieldKeys: [
+        Fileds.DATE.key,
+        Fileds.DATEDUE.key,
+        Fileds.currency.key,
+        Fileds.Payments_types.key,
+        Fileds.Received_as.key,
+      ],
+      optionBasedFields: [Fileds.STATUS.key],
+      dateFields: [Fileds.DATE.key],
+      options: {
+        [Fileds.STATUS.key]: [
+          Fileds.New.key,
+          Fileds.cancel.key,
+          Fileds.Paid.key,
+        ],
+      },
+    },
+    part_3: {
+      objects: {},
+      fieldHeadings: [
+        Fileds.Name.label,
+        Fileds.PRICE.label,
+        Fileds.QUANTITY.label,
+        Fileds.SUBTOTAL.label,
+        Fileds.HST.label,
+        Fileds.USE_SALES.label,
+      ],
+      fieldKeys: [
+        Fileds.Name.key,
+        Fileds.PRICE.key,
+        Fileds.QUANTITY.label,
+        Fileds.SUBTOTAL.label,
+        Fileds.HST.label,
+        Fileds.USE_SALES.label,
+      ],
+      optionBasedFields: [Fileds.STATUS.key],
+      dateFields: [],
+      options: {
+        [Fileds.STATUS.key]: [
+          Fileds.New.key,
+          Fileds.cancel.key,
+          Fileds.Paid.key,
+        ],
+      },
+    },
+  },
+};
+const Invoice_update_model = {
+  Trust_steps_2: {
+    part_1: {
+      objects: { [Fileds.STATUS.label]: "", [Fileds.Name.label]: "" },
+      fieldHeadings: [
+        Fileds.STATUS.key,
+        Fileds.BALANCE.label,
+        Fileds.Name.label,
+        Fileds.DATE.label,
+      ],
+      fieldKeys: [
+        Fileds.STATUS.key,
+        Fileds.BALANCE.key,
+        Fileds.Name.key,
+        Fileds.DATE.key,
+      ],
+      optionBasedFields: [Fileds.STATUS.key, Fileds.Name.label],
+      dateFields: [Fileds.DATE.key],
+      options: {
+        [Fileds.STATUS.key]: [
+          Fileds.New.key,
+          Fileds.cancel.key,
+          Fileds.Paid.key,
+        ],
+      },
+    },
+  },
+};
 export default input_Heading;
-export { Create_Fileds };
+export { Create_Fileds, Trust_Model, Invoice_update_model };

@@ -77,7 +77,8 @@ const Listing_Details = () => {
     OFFER: fined?.OFFER || [],
     TRANSACTION: fined?.TRANSACTION || [],
   };
-
+  console.log(Heading.Agents);
+  console.log(Agents);
   const fieldTypes = input_Heading.Listing_Heading.fieldKeys.map((key) =>
     input_Heading.Listing_Heading.optionBasedFields.includes(key)
       ? "options"

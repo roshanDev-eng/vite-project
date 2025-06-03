@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { addAgent } from "../../../Redux_tolkit/Agent/agentSlice";
 import Fileds from "../../../Globel_Arrays/Fileds";
 
-const Agent_Page = () => {
+const Clients_Show = () => {
   const agents = useSelector((state) => state.agents.agents);
   const dispatch = useDispatch();
 
@@ -200,4 +200,4 @@ const Agent_Page = () => {
   );
 };
 
-export default Agent_Page;
+export default Clients_Show;

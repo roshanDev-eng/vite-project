@@ -4,24 +4,26 @@ const Fileds = {
   Code: { label: "Code", key: "Code" },
   City: { label: "City", key: "City" },
   MLS: { label: "MLS", key: "MLS" },
+
   Number: { label: "Number", key: "Number" },
+  RECEIPT: { label: "RECEIPT", key: "RECEIPT" },
   POSITION: { label: "Position", key: "POSITION" },
   // ── Agent / Brokerage ───────────────────────────────────
   Agents: { label: "Agents", key: "Agents" },
   BROKERAGE: { label: "Brokerage", key: "BROKERAGE" },
-
   // ── Balance ─────────────────────────────────────────────
   BALANCE: { label: "Balance", key: "BALANCE" },
   BALANCE_To: { label: "Balance Total", key: "BALANCE_To" },
 
   // ── Commission ──────────────────────────────────────────
+  REMAINING: { label: "REMAINING", key: "REMAINING" },
   Commission: { label: "Commission", key: "Commission" },
   Commission_total: { label: "Commission Total", key: "Commission_total" },
   COMMISSIONCO_OP: {
     label: "Co-op Commission",
     key: "COMMISSIONCO_OP",
   },
-  Iscommission: { label: "Is Commission", key: "Iscommission" },
+  Iscommission: { label: "Is Commission", key: "%" },
   ISCOMMISSIONINPERCENTAGE: {
     label: "IS COMMISSION IN PERCENTAGE",
     key: "ISCOMMISSIONINPERCENTAGE",
@@ -33,11 +35,16 @@ const Fileds = {
     label: "Are There Any Conditions",
     key: "ARE_THERE_ANY_CONDITIONS",
   },
-
+  //......quantity
+  QUANTITY: { label: "QUANTITY", key: "QUANTITY" },
+  SUBTOTAL: { label: "SUBTOTAL", key: "SUBTOTAL" },
+  HST: { label: "HST", key: "HST" },
+  USE_SALES: { label: "USE SALES", key: "USE_SALES" },
   // ── Dates ───────────────────────────────────────────────
   CREATED: { label: "Created", key: "CREATED" },
   CLOSING: { label: "Closing", key: "CLOSING" },
   DATE: { label: "Date", key: "DATE" },
+  DATEDUE: { label: " DUE DATE", key: "DUE Date" },
   FINANCEINGDATE: { label: "FINANCEING DATE", key: "FINANCEINGDATE" },
   EXPIRE: { label: "Expire", key: "EXPIRE" },
   IRREVOCABILITY_DATE: {
@@ -135,7 +142,21 @@ const Fileds = {
   //........yes or no
   Yes: { label: "Yes", key: "Yes" },
   No: { label: "No", key: "No" },
+  //..........new_cancel_Paid
+  New: { label: "New", key: "New" },
+  cancel: { label: "Cancel", key: "cancel" },
+  Paid: { label: "Paid", key: "Paid" },
+  //.........payments
+  currency: { label: "CURRENCY", key: "currency" },
+  Payments_types: { label: "PAYMENTS TYPES", key: "Payments_types" },
+  Received_as: { label: "RECEIVED AS", key: "Received_as" },
+  cash: { label: "cash", value: "cash" },
+  credit_cards: { label: "credit cards", value: "credit_cards" },
+  debit_cards: { label: "debit cards", value: "debit_cards" },
+  mobile_payments: { label: "mobile payments", value: "mobile_payments" },
+  bank_transfers: { label: "bank transfers", value: "bank_transfers" },
   //...........Address
+  Invoice: { label: "Invoice", key: "Invoice" },
   CATEGORY: { label: "Category", key: "CATEGORY" },
   Country: { label: "Country", key: "Country" },
   TYPE_address: { label: "Type Address", key: "TYPE_address" },

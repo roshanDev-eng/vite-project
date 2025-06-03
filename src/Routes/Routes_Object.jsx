@@ -10,13 +10,14 @@ import Listing_Show from "../Pages/Files/Listing/Listing_Show";
 import Multiple_steps from "../Pages/Files/Listing/Multiple_steps";
 import Multiple_steps_Offer from "../Pages/Files/Offer/Multiple_steps_Offer";
 import { Listings_convert_ofer } from "../Pages/Files/Listing/Listings_convert_ofer";
-
 import Offer_Details from "../Pages/Files/Offer/Offer_Details";
 import Offer_Router from "../Pages/Files/Offer/Offer_Router";
 import Offer_Show from "../Pages/Files/Offer/Offer_Show";
 import Transaction_Details from "../Pages/Files/Transaction/Transaction_Details";
 import Transaction_Route from "../Pages/Files/Transaction/Transaction_Route";
 import Transaction_Show from "../Pages/Files/Transaction/Transaction_Show";
+import { Invoice_Router } from "../Pages/Invoice_folder/Invoice/Invoice_Router";
+import Invoice_show from "../Pages/Invoice_folder/Invoice/Invoice_show";
 
 const Routes_Object = {
   Listing: {
@@ -101,6 +102,16 @@ const Routes_Object = {
       },
     ],
   },
+  Invoice: {
+    path: "Invoices",
+    element: <Invoice_Router />,
+    nested: [
+      {
+        path: "Invoices_Show",
+        element: <Invoice_show />,
+      },
+    ],
+  },
 };
 
 export default Routes_Object;
@@ -110,4 +121,5 @@ export const routerarray = [
   Routes_Object.All,
   Routes_Object.Offer,
   Routes_Object.Transaction,
+  Routes_Object.Invoice,
 ];

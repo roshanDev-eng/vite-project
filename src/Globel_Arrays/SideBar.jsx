@@ -65,7 +65,7 @@ const Sidebar_Links = {
       // },
       {
         Show: "Clients",
-        name: "Clients",
+        name: "Clients/Clients_Show",
       },
       {
         Show: "Lawyers",
@@ -183,10 +183,10 @@ const Sidebar_Links = {
         Show: "Agents",
         name: "Agents_Ledgers",
       },
-      {
-        Show: "Disclosures",
-        name: "Disclosures_Ledgers",
-      },
+      // {
+      //   Show: "Disclosures",
+      //   name: "Disclosures_Ledgers",
+      // },
       {
         Show: "Listings",
         name: "Listings_Ledgers",

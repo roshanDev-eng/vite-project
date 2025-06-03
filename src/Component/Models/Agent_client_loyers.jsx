@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Agent_Selected from "../steps/Agent_Selected";
 import { add_Agent_Client_Loywer } from "../../Redux_tolkit/Listing/Listing_Offer_array";
 import Client_Selected from "../steps/Client_Selected";
@@ -14,6 +14,7 @@ const Agent_client_loyers = ({
   onClose,
 }) => {
   const dispatch = useDispatch();
+  const agents = useSelector((state) => state.agents.agents);
   const [formData, setFormData] = useState({
     Agents: [],
     Clients: [],
@@ -57,20 +58,7 @@ const Agent_client_loyers = ({
           <>
             <Agent_Selected
               onChange={(data) => updateStepData(selectedSection, data)}
-              agentsList={[
-                {
-                  _id: "a1",
-                  FIRST_NAME: "John",
-                  LASTNAME: "Smith",
-                  GMAIL: "aaaa",
-                },
-                {
-                  _id: "c1",
-                  FIRST_NAME: "Alice",
-                  LASTNAME: "Doe",
-                  GMAIL: "aaabbbbba",
-                },
-              ]}
+              agentsList={agents}
               data={formData[selectedSection]}
             />
           </>

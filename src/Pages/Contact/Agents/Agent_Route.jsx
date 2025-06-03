@@ -1,10 +1,8 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
-import Agent_Page from "./Agent_Page";
+import { Outlet } from "react-router-dom";
 
 const Agent_Route = () => {
   return (
-    <div>
+    <div className>
       <Outlet />
     </div>
   );

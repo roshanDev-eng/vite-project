@@ -11,7 +11,7 @@ const PagesRoutes = () => {
         return hasNested ? (
           <Route key={index} path={route.path} element={route.element}>
             {route.nested.map((nested, nestedIndex) => {
-              console.log(nested.path);
+              // console.log(nested.path);
               return (
                 <Route
                   key={nestedIndex}

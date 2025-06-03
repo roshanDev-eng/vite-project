@@ -9,22 +9,7 @@ import { useParams } from "react-router-dom";
 
 export const Listings_convert_ofer = () => {
   const { id } = useParams();
-  const yourAgentsArray = [
-    {
-      _id: "124",
-      FIRST_NAME: "Johnvvv",
-      LASTNAME: "Doe",
-      GMAIL: "john@example.com",
-      CITY: "Toronto",
-    },
-    {
-      _id: "456",
-      FIRST_NAME: "Janeeee",
-      LASTNAME: "Smith",
-      GMAIL: "jane@example.com",
-      CITY: "Vancouver",
-    },
-  ];
+  const agents = useSelector((state) => state.agents.agents);
   const yourClientsArray = [
     {
       _id: "124",
@@ -77,7 +62,7 @@ export const Listings_convert_ofer = () => {
       {currentStep === 2 && (
         <>
           <Agent_Selected
-            agentsList={yourAgentsArray} // pass the agents array from backend/mock
+            agentsList={agents} // pass the agents array from backend/mock
             data={formData.Agents}
             onChange={(data) => updateStepData("Agents", data)}
           />

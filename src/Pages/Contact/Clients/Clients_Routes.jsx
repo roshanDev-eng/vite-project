@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const Offer_Router = () => {
+const Clients_Routes = () => {
   return (
     <div>
       <Outlet />
@@ -8,4 +8,4 @@ const Offer_Router = () => {
   );
 };
 
-export default Offer_Router;
+export default Clients_Routes;

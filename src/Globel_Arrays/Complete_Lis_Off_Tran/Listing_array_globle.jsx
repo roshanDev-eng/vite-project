@@ -262,6 +262,7 @@ const Transaction_array = [
         [Fileds.Type.key]: "seler",
         [Fileds.Commission.key]: "200",
         [Fileds.Iscommission.key]: "yes",
+        Trnsactionid: "T1",
       },
       {
         agentId: "124",
@@ -269,18 +270,19 @@ const Transaction_array = [
         [Fileds.Type.key]: "seler",
         [Fileds.Commission.key]: "200",
         [Fileds.Iscommission.key]: "yes",
+        Trnsactionid: "T1",
       },
     ],
     Clients: [
       {
-        agentId: "125",
+        clientId: "125",
         [Fileds.Name.key]: "Akash",
         [Fileds.Type.key]: "seler",
         [Fileds.Commission.key]: "200",
         [Fileds.Iscommission.key]: "yes",
       },
       {
-        agentId: "124",
+        clientId: "124",
         [Fileds.Name.key]: "Akash",
         [Fileds.Type.key]: "seler",
         [Fileds.Commission.key]: "200",

@@ -10,7 +10,6 @@ const App = () => {
       <Sidebar />
       <div className="w-screen pt-16  px-5 pl-[260px]  ">
         <PagesRoutes />
-        aaaaa
       </div>
     </div>
   );

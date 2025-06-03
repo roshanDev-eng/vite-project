@@ -5,32 +5,11 @@ import Agent_Selected from "../../../Component/steps/Agent_Selected";
 import Client_Selected from "../../../Component/steps/Client_Selected";
 import { Create_Fileds } from "../../../Globel_Arrays/Input_Heading";
 import { addListing } from "../../../Redux_tolkit/Listing/Listing_Offer_array";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Multiple_steps = () => {
-  const yourAgentsArray = [
-    {
-      _id: "124",
-      FIRST_NAME: "Johnjj",
-      LASTNAME: "Doe",
-      GMAIL: "john@example.com",
-      CITY: "Toronto",
-    },
-    {
-      _id: "456",
-      FIRST_NAME: "Jane",
-      LASTNAME: "Smith",
-      GMAIL: "jane@example.com",
-      CITY: "Vancouver",
-    },
-    {
-      _id: "476",
-      FIRST_NAME: "Jane",
-      LASTNAME: "Smith",
-      GMAIL: "jane@example.com",
-      CITY: "Vancouver",
-    },
-  ];
+  const agents = useSelector((state) => state.agents.agents);
+  console.log(agents);
   const yourClientsArray = [
     {
       _id: "123",
@@ -89,7 +68,7 @@ const Multiple_steps = () => {
       {currentStep === 3 && (
         <>
           <Agent_Selected
-            agentsList={yourAgentsArray} // pass the agents array from backend/mock
+            agentsList={agents} // pass the agents array from backend/mock
             data={formData.Agents}
             onChange={(data) => updateStepData("Agents", data)}
           />

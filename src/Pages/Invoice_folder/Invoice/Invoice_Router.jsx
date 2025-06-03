@@ -1,11 +1,9 @@
 import { Outlet } from "react-router-dom";
 
-const Offer_Router = () => {
+export const Invoice_Router = () => {
   return (
     <div>
       <Outlet />
     </div>
   );
 };
-
-export default Offer_Router;

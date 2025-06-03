@@ -7,6 +7,7 @@ const Heading = {
     cols: "grid-cols-4",
     fields: [Fileds.Name, Fileds.Type, Fileds.Commission, Fileds.Iscommission],
     Button: true,
+    button: "Add Agents ",
     size: "w-[100px]",
   },
   Clients: {
@@ -15,6 +16,7 @@ const Heading = {
     cols: "grid-cols-2",
     fields: [Fileds.Name, Fileds.Type],
     Button: true,
+    button: "Add Clients ",
     size: "w-[100px]",
   },
   Loyers: {
@@ -24,6 +26,7 @@ const Heading = {
     fields: [Fileds.Name, Fileds.Type],
     Button: true,
     size: "w-[100px]",
+    button: "Add Loyers ",
   },
   Office: {
     key: "Office",
@@ -98,7 +101,7 @@ const Heading = {
     heading: "STATEMENT",
     cols: "grid-cols-7",
     fields: [
-      Fileds.Number,
+      Fileds.RECEIPT,
       Fileds.Name,
       Fileds.DATE,
       Fileds.BALANCE,
@@ -106,14 +109,16 @@ const Heading = {
       Fileds.STATUS,
       Fileds.SYNC,
     ],
+    Button: true,
     size: "w-[320px]",
   },
   INVOICES: {
     key: "INVOICES",
     heading: "INVOICES",
     cols: "grid-cols-7",
+    Button: true,
     fields: [
-      Fileds.Number,
+      Fileds.RECEIPT,
       Fileds.Name,
       Fileds.DATE,
       Fileds.BALANCE,
@@ -142,10 +147,10 @@ const Heading = {
     heading: "TRUST DEPOSITS",
     cols: "grid-cols-6",
     fields: [
-      Fileds.Number,
+      Fileds.RECEIPT,
       Fileds.Name,
       Fileds.DATE,
-      Fileds.BALANCE,
+      Fileds.REMAINING,
       Fileds.STATUS,
       Fileds.SYNC,
     ],
@@ -155,6 +160,7 @@ const Heading = {
     key: "TRUST_LEDGER",
     heading: "TRUST LEDGER",
     cols: "grid-cols-5",
+
     fields: [
       Fileds.Name,
       Fileds.DATE,

@@ -1,24 +1,84 @@
 import { useSelector } from "react-redux";
 import Heading from "../../../Globel_Arrays/Heading";
-import { updateField } from "../../../Redux_tolkit/Listing/Listing_Offer_array";
 import {
-  handelopen,
+  Delete_Agent_Client_Loywer,
+  updateField,
+} from "../../../Redux_tolkit/Listing/Listing_Offer_array";
+import {
+  Handelmodel,
+  Undateid,
   withdrawAmount,
 } from "../../../Redux_tolkit/Transaction/Transaction";
+import { useMemo } from "react";
 
 export const getuseselectervalue = () => {
-  return {
-    Transaction_show: useSelector(
-      (state) => state.Listing_Offer.Transaction_array
-    ),
-    trustLedger: useSelector((state) => state.Transaction.trustLedger),
-    trustDeposits: useSelector((state) => state.Transaction.trustDeposits),
-    totalBalance: useSelector((state) => state.Transaction.totalBalance),
-    Trust_model_on_off: useSelector(
-      (state) => state.Transaction.Trust_model_On_off
-    ),
-    Trust_Counter: useSelector((state) => state.Transaction.counter),
-  };
+  const Transaction_show = useSelector(
+    (state) => state.Listing_Offer.Transaction_array
+  );
+  const Invoice_Model_update_on_off = useSelector(
+    (state) => state.Transaction.Invoice_Model_update_on_off
+  );
+  const Statement_Model_update_on_off = useSelector(
+    (state) => state.Transaction.Statement_Model_update_on_off
+  );
+  const trustWithdrawalLedger = useSelector(
+    (state) => state.Transaction.trustWithdrawalLedger
+  );
+  const trustLedger = useSelector((state) => state.Transaction.trustLedger);
+  const Invoice_model = useSelector(
+    (state) => state.Transaction.Invoice_model_On_off
+  );
+  const Statement_model_Button = useSelector(
+    (state) => state.Transaction.Statement_model_On_off
+  );
+  const Statement_manual_model = useSelector(
+    (state) => state.Transaction.Statement_manual_model_On_off
+  );
+  const Invoice_manual_model = useSelector(
+    (state) => state.Transaction.Invoice_manual_model_On_off
+  );
+  const trustDeposits = useSelector((state) => state.Transaction.trustDeposits);
+  const statement = useSelector((state) => state.Transaction.statement);
+  const totalBalance = useSelector((state) => state.Transaction.totalBalance);
+  const Trust_model_on_off = useSelector(
+    (state) => state.Transaction.Trust_model_On_off
+  );
+  const Trust_Counter = useSelector((state) => state.Transaction.counter);
+
+  return useMemo(
+    () => ({
+      Invoice_Model_update_on_off,
+      Statement_Model_update_on_off,
+      trustWithdrawalLedger,
+      Transaction_show,
+      trustLedger,
+      statement,
+      Invoice_model,
+      Statement_model_Button,
+      Statement_manual_model,
+      Invoice_manual_model,
+      trustDeposits,
+      totalBalance,
+      Trust_model_on_off,
+      Trust_Counter,
+    }),
+    [
+      Invoice_Model_update_on_off,
+      Statement_Model_update_on_off,
+      trustWithdrawalLedger,
+      Transaction_show,
+      trustLedger,
+      statement,
+      Invoice_model,
+      Statement_model_Button,
+      Statement_manual_model,
+      Invoice_manual_model,
+      trustDeposits,
+      totalBalance,
+      Trust_model_on_off,
+      Trust_Counter,
+    ]
+  );
 };
 export const getdispatchfunctios = (dispatch, objects) => {
   return {
@@ -32,56 +92,116 @@ export const getdispatchfunctios = (dispatch, objects) => {
       Heading.STATEMENT,
       Heading.LISTING,
     ],
+    Invoiceupdate_Heading: [Heading.STATEMENT],
+    updateidfuntion: ({ index }) => dispatch(Undateid({ index })),
+    UpdateObject: {
+      Invoice: {
+        id: "5",
+        delete_agent_loyers: ({ sectionKey, row, index, id }) =>
+          dispatch(
+            Delete_Agent_Client_Loywer({
+              arrayname: "Transaction_array", // Assuming you're deleting from Listings
+              id: id, // The Listing ID from URL
+              agentid: row.agentId || row.clientId, // Works for both agents and clients
+              idname: "Transaction_id", // The field in Listing to match
+              object_name: sectionKey, // "Agents" or "Clients"
+            })
+          ),
+        offClick: () =>
+          dispatch(
+            Handelmodel({ off: false, editName: "Invoice_Model_update_on_off" })
+          ),
+        onClickon: () =>
+          dispatch(
+            Handelmodel({ on: true, editName: "Invoice_Model_update_on_off" })
+          ),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
+      },
+      Statement: {
+        id: "6",
+        offClick: () =>
+          dispatch(
+            Handelmodel({
+              off: false,
+              editName: "Statement_Model_update_on_off",
+            })
+          ),
+        onClickon: () =>
+          dispatch(
+            Handelmodel({ on: true, editName: "Statement_Model_update_on_off" })
+          ),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
+      },
+    },
     buttonList: [
       {
-        text: "Deposit",
+        id: "0",
+        text: "Trust",
         offClick: () =>
-          dispatch(handelopen({ off: false, editName: "Trust_model_On_off" })),
+          dispatch(Handelmodel({ off: false, editName: "Trust_model_On_off" })),
         onClickon: () =>
-          dispatch(handelopen({ on: true, editName: "Trust_model_On_off" })),
-        next: () => dispatch(handelopen({ counter: "next" })),
-        pre: () => dispatch(handelopen({ counter: "pre" })),
+          dispatch(Handelmodel({ on: true, editName: "Trust_model_On_off" })),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
       },
       {
-        text: "Withdraw",
-        offClick: () => dispatch(),
+        id: "1",
+        text: "Invoice",
+        offClick: () =>
+          dispatch(
+            Handelmodel({ off: false, editName: "Invoice_model_On_off" })
+          ),
+        onClickon: () =>
+          dispatch(Handelmodel({ on: true, editName: "Invoice_model_On_off" })),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
+      },
+      {
+        id: "2",
+        text: "statement",
+        offClick: () =>
+          dispatch(
+            Handelmodel({ off: false, editName: "Statement_model_On_off" })
+          ),
         onClickon: () =>
           dispatch(
-            withdrawAmount({
-              agentsarray: objects.Agents,
-              agentId: "124",
-              name: "murtaza",
-              amount: 2000,
-            })
+            Handelmodel({ on: true, editName: "Statement_model_On_off" })
           ),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
       },
       {
-        text: "Ledger Entry",
-        offClick: () => dispatch(),
+        id: "3",
+        text: "Manual statement",
+        offClick: () =>
+          dispatch(
+            Handelmodel({
+              off: false,
+              editName: "Statement_manual_model_On_off",
+            })
+          ),
         onClickon: () =>
           dispatch(
-            addLedgerEntry({
-              name: "Alice",
-              date: "2025-05-11",
-              deposit: 3000,
-              withdrawal: 0,
-            })
+            Handelmodel({ on: true, editName: "Statement_manual_model_On_off" })
           ),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
       },
       {
-        text: "Add Agent",
-        offClick: () => dispatch(),
-        onClickon: () => console.log("Add Agent"),
-      },
-      {
-        text: "Add Lawyer",
-        offClick: () => dispatch(),
-        onClickon: () => console.log("Add Lawyer"),
-      },
-      {
-        text: "Add Transaction",
-        offClick: () => dispatch(),
-        onClickon: () => console.log("Add Transaction"),
+        id: "4",
+        text: "Manual Invoice",
+        offClick: () =>
+          dispatch(
+            Handelmodel({ off: false, editName: "Invoice_manual_model_On_off" })
+          ),
+        onClickon: () =>
+          dispatch(
+            Handelmodel({ on: true, editName: "Invoice_manual_model_On_off" })
+          ),
+        next: () => dispatch(Handelmodel({ counter: "next" })),
+        pre: () => dispatch(Handelmodel({ counter: "pre" })),
       },
     ],
     handleInputChange: (arrayname, idname, objname, id) => {

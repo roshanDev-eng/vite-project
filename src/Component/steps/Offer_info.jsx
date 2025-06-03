@@ -35,8 +35,8 @@ const Offer_info = ({ data, onChange }) => {
         Array={Create_Fileds.Offerinfo_Heading.fieldKeys}
         type={fieldTypes}
         options={fieldOptions}
-        row="grid-cols-3"
-        cols="col-span-3"
+        row="grid-cols-2"
+        cols="col-span-2"
       />
     </div>
   );
